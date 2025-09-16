@@ -14,12 +14,11 @@ load_dotenv()
 # Configure page
 st.set_page_config(
     page_title="AI Interview Analyzer",
-    page_icon="🎯",
     layout="wide"
 )
 
 def main():
-    st.title("🎯 AI-Powered Interview Analyzer")
+    st.title("AI-Powered Interview Analyzer")
     st.markdown("*Structured summaries with bias detection for fair hiring practices*")
     
     # Initialize analyzer with API key from .env
@@ -37,7 +36,7 @@ def main():
         return
     
     # Main input section
-    st.header("📝 Interview Transcript Input")
+    st.header("Interview Transcript Input")
     
     # Sample data checkbox
     use_sample = st.checkbox("Load Sample Data", help="Use pre-loaded interview transcripts for testing")
@@ -58,7 +57,7 @@ def main():
         )
     
     # Analysis button
-    if st.button("🔍 Analyze Interview", type="primary", disabled=not transcript):
+    if st.button("Analyze Interview", type="primary", disabled=not transcript):
         if not transcript.strip():
             st.error("Please provide an interview transcript to analyze")
             return
@@ -89,14 +88,14 @@ def main():
 
 def display_summary(summary_data):
     """Display the structured interview summary"""
-    st.header("📊 Structured Summary")
+    st.header("Structured Summary")
     
     # Executive Summary
     st.subheader("Executive Summary")
     st.write(summary_data.get('executive_summary', 'No executive summary available'))
     
     # Candidate Strengths
-    st.subheader("💪 Candidate Strengths")
+    st.subheader("Candidate Strengths")
     strengths = summary_data.get('strengths', [])
     if strengths:
         for strength in strengths:
@@ -105,7 +104,7 @@ def display_summary(summary_data):
         st.write("No specific strengths identified")
     
     # Areas for Improvement
-    st.subheader("📈 Areas for Improvement")
+    st.subheader("Areas for Improvement")
     improvements = summary_data.get('improvements', [])
     if improvements:
         for improvement in improvements:
@@ -114,7 +113,7 @@ def display_summary(summary_data):
         st.write("No specific areas for improvement identified")
     
     # Overall Recommendation
-    st.subheader("🎯 Overall Recommendation")
+    st.subheader("Overall Recommendation")
     recommendation = summary_data.get('recommendation', 'No recommendation available')
     
     # Color code the recommendation
@@ -127,7 +126,7 @@ def display_summary(summary_data):
 
 def display_bias_dashboard(bias_data):
     """Display bias detection dashboard with visualizations"""
-    st.header("⚖️ Bias Detection Dashboard")
+    st.header("Bias Detection Dashboard")
     
     # Bias detection table
     st.subheader("Detected Biases")
@@ -197,11 +196,11 @@ def display_bias_dashboard(bias_data):
             else:
                 st.info("No suspicious phrases detected")
     else:
-        st.success("✅ No significant biases detected in this interview")
+        st.success("No significant biases detected in this interview")
 
 def display_recommendations(recommendations):
     """Display actionable recommendations"""
-    st.header("💡 Recommendations")
+    st.header("Recommendations")
     
     if recommendations and len(recommendations) > 0:
         for i, rec in enumerate(recommendations, 1):
